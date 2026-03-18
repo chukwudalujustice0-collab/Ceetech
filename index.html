@@ -877,6 +877,7 @@
   const navLinks = document.getElementById("nav-links");
   const links = document.querySelectorAll(".nav-links a");
   const animatedItems = document.querySelectorAll(".animate");
+  const form = document.getElementById("contact-form");
 
   if (menuToggle && navLinks) {
     menuToggle.addEventListener("click", function () {
@@ -884,9 +885,9 @@
     });
   }
 
-  links.forEach(function(link) {
-    link.addEventListener("click", function() {
-      links.forEach(function(item) {
+  links.forEach(function (link) {
+    link.addEventListener("click", function () {
+      links.forEach(function (item) {
         item.classList.remove("active");
       });
       this.classList.add("active");
@@ -897,7 +898,7 @@
   });
 
   function revealOnScroll() {
-    animatedItems.forEach(function(item) {
+    animatedItems.forEach(function (item) {
       const itemTop = item.getBoundingClientRect().top;
       const windowHeight = window.innerHeight;
 
@@ -911,12 +912,9 @@
   window.addEventListener("load", revealOnScroll);
   revealOnScroll();
 
-  const supabaseUrl = "https://hrcilkmvnumxmafx.supabase.co";
-  const supabaseKey = "sb_publishable_3bPHYwJ7HwStyR1B98UEHA_VpQj3V66";
-
-  const form = document.getElementById("contact-form");
-
   if (window.supabase && form) {
+    const supabaseUrl = "https://hrcilkmvnumxmafznowp.supabase.co";
+    const supabaseKey = "sb_publishable_3bPHYwJ7HwStyR1B98UEHA_VpQj3V66";
     const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
     form.addEventListener("submit", async function (e) {
@@ -945,7 +943,7 @@
       }
     });
   } else {
-    alert("Supabase library not loaded or form not found");
+    console.log("Supabase library not loaded or form not found");
   }
 </script>
 </body>
