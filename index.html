@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ceetice Admin Dashboard</title>
+  <title>Ceetice Technologies | Digital, Printing & Branding Solutions</title>
+  <meta
+    name="description"
+    content="Ceetice Technologies offers web design, printing, branding, graphics design, business center services and logistics support."
+  />
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: Arial, sans-serif;
     }
 
     :root {
@@ -19,507 +22,1230 @@
       --white: #ffffff;
       --text: #1f1f1f;
       --soft-text: #5f6b7a;
-      --bg: #f4f8ff;
+      --light-bg: #f7faff;
       --shadow: 0 10px 30px rgba(11, 94, 215, 0.12);
-      --radius: 18px;
+      --radius: 22px;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
+      font-family: Arial, sans-serif;
       background: linear-gradient(180deg, #f9fbff 0%, #edf4ff 100%);
       color: var(--text);
-      padding: 20px;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
 
-    .wrap {
+    img,
+    video {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    header {
+      background: linear-gradient(90deg, var(--deep-blue), var(--blue));
+      padding: 14px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    nav {
       max-width: 1200px;
       margin: auto;
-    }
-
-    .topbar {
-      background: linear-gradient(90deg, var(--deep-blue), var(--blue));
-      color: white;
-      padding: 18px 20px;
-      border-radius: 18px;
-      box-shadow: var(--shadow);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
+      gap: 20px;
     }
 
-    .topbar h1 {
-      font-size: 1.4rem;
+    .logo a {
+      color: var(--white);
+      font-size: 1.45rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .btn {
+    .menu-toggle {
+      display: none;
+      background: transparent;
       border: none;
-      background: white;
-      color: var(--deep-blue);
-      padding: 10px 16px;
-      border-radius: 10px;
-      font-weight: bold;
+      color: white;
+      font-size: 1.9rem;
       cursor: pointer;
     }
 
-    .card {
-      background: white;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 20px;
-      margin-bottom: 22px;
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 18px;
     }
 
-    .login-box {
-      max-width: 450px;
+    .nav-links a {
+      color: white;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #ffd7d7;
+    }
+
+    .hero {
+      max-width: 1200px;
       margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 35px;
+      align-items: center;
     }
 
-    .login-box h2 {
+    .hero-text {
+      background: linear-gradient(135deg, rgba(11,94,215,0.08), rgba(255,59,59,0.08));
+      padding: 40px;
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(11, 94, 215, 0.1);
+      color: var(--blue);
+      padding: 8px 14px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: bold;
       margin-bottom: 14px;
-      color: var(--deep-blue);
     }
 
-    .login-box p {
-      color: var(--soft-text);
+    .hero-text h1 {
+      font-size: 3rem;
+      line-height: 1.12;
+      color: var(--deep-blue);
       margin-bottom: 16px;
     }
 
-    .form-grid {
-      display: grid;
-      gap: 12px;
+    .hero-text p {
+      color: var(--soft-text);
+      margin-bottom: 24px;
+      font-size: 1.05rem;
+      max-width: 620px;
     }
 
-    input, select {
+    .hero-buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .hero-buttons a {
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: bold;
+      transition: 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--red), #ff7070);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: linear-gradient(90deg, var(--deep-blue), var(--blue));
+      color: white;
+    }
+
+    .hero-buttons a:hover {
+      transform: translateY(-3px);
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: 24px;
+      min-height: 340px;
+      object-fit: cover;
+      box-shadow: 0 18px 40px rgba(6, 43, 102, 0.18);
+    }
+
+    section {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-title h2 {
+      font-size: 2.2rem;
+      color: var(--deep-blue);
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: var(--soft-text);
+      max-width: 720px;
+      margin: auto;
+    }
+
+    .about-content,
+    .contact-content,
+    .media-card,
+    .video-card {
+      background: white;
+      padding: 30px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border-top: 5px solid var(--red);
+    }
+
+    .about-content p,
+    .contact-content p {
+      margin-bottom: 12px;
+      color: var(--soft-text);
+    }
+
+    .service-boxes,
+    .why-boxes,
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .service-card,
+    .why-card,
+    .testimonial-card {
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: 0.35s ease;
+    }
+
+    .service-card:hover,
+    .why-card:hover,
+    .testimonial-card:hover,
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .service-card {
+      position: relative;
+      padding-bottom: 18px;
+    }
+
+    .service-icon {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: linear-gradient(90deg, var(--deep-blue), var(--blue));
+      color: white;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 42px;
+      font-size: 20px;
+      z-index: 2;
+      box-shadow: 0 8px 18px rgba(6, 43, 102, 0.2);
+    }
+
+    .service-card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .service-card h3,
+    .why-card h3 {
+      color: var(--deep-blue);
+      font-size: 1.2rem;
+      margin: 18px 18px 10px;
+    }
+
+    .service-card p,
+    .why-card p {
+      color: var(--soft-text);
+      margin: 0 18px 0;
+      font-size: 0.96rem;
+    }
+
+    .why-card {
+      padding: 24px 0 20px;
+      border-bottom: 4px solid var(--blue);
+    }
+
+    .why-card:nth-child(even) {
+      border-bottom: 4px solid var(--red);
+    }
+
+    .why-card p {
+      margin-bottom: 0;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .portfolio-card {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: 0.35s ease;
+    }
+
+    .portfolio-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(6, 43, 102, 0.92), rgba(6, 43, 102, 0.12));
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      padding: 20px;
+    }
+
+    .portfolio-overlay h3 {
+      margin-bottom: 6px;
+      font-size: 1.08rem;
+    }
+
+    .portfolio-overlay p {
+      font-size: 0.92rem;
+    }
+
+    .testimonial-card {
+      padding: 28px 22px;
+      border-top: 4px solid var(--red);
+    }
+
+    .testimonial-card p {
+      color: var(--soft-text);
+      margin-bottom: 16px;
+      font-size: 0.98rem;
+    }
+
+    .testimonial-card h3 {
+      color: var(--deep-blue);
+      font-size: 1rem;
+    }
+
+    .contact-form,
+    .lead-form {
+      margin-top: 24px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .lead-form input,
+    .lead-form textarea {
       width: 100%;
       padding: 14px;
-      border: 1px solid #d8e0ef;
+      border: 1px solid #d9e2f2;
       border-radius: 12px;
       font-size: 1rem;
+      outline: none;
     }
 
-    .submit-btn {
-      border: none;
+    .contact-form input:focus,
+    .contact-form textarea:focus,
+    .lead-form input:focus,
+    .lead-form textarea:focus {
+      border-color: var(--blue);
+    }
+
+    .contact-form button,
+    .lead-form button {
       background: linear-gradient(90deg, var(--deep-blue), var(--blue));
       color: white;
-      padding: 14px 18px;
+      border: none;
+      padding: 14px 20px;
       border-radius: 12px;
       font-weight: bold;
       cursor: pointer;
     }
 
-    .hidden {
-      display: none;
+    .contact-form button:hover,
+    .lead-form button:hover {
+      opacity: 0.95;
     }
 
-    .tabs {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-
-    .tab-btn {
-      border: none;
-      background: #dfe9ff;
-      color: var(--deep-blue);
-      padding: 10px 14px;
-      border-radius: 10px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .tab-btn.active {
-      background: linear-gradient(90deg, var(--deep-blue), var(--blue));
-      color: white;
-    }
-
-    .toolbar {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-bottom: 14px;
-    }
-
-    .toolbar input {
-      max-width: 320px;
-    }
-
-    .table-wrap {
-      overflow-x: auto;
-      border-radius: 14px;
-    }
-
-    table {
+    .video-card video,
+    .media-card video,
+    .media-card img {
       width: 100%;
-      border-collapse: collapse;
-      min-width: 850px;
-      background: white;
+      border-radius: 18px;
+      object-fit: cover;
     }
 
-    th, td {
-      text-align: left;
-      padding: 12px 10px;
-      border-bottom: 1px solid #ecf0f8;
-      vertical-align: top;
+    .video-note,
+    .media-note {
+      color: var(--soft-text);
+      margin-top: 14px;
       font-size: 0.95rem;
     }
 
-    th {
-      background: #f5f8ff;
-      color: var(--deep-blue);
+    .main-footer {
+      background: linear-gradient(90deg, var(--deep-blue), var(--blue));
+      color: white;
+      padding: 50px 20px 20px;
+      margin-top: 60px;
     }
 
-    tr:hover {
-      background: #fafcff;
-    }
-
-    .status {
-      margin-top: 10px;
-      color: var(--soft-text);
-      font-size: 0.95rem;
-    }
-
-    .empty {
-      color: var(--soft-text);
-      padding: 14px 0;
-    }
-
-    .count-boxes {
+    .footer-grid {
+      max-width: 1200px;
+      margin: auto;
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-      margin-bottom: 20px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
     }
 
-    .count-card {
-      background: white;
-      border-radius: 16px;
+    .footer-box h3 {
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+
+    .footer-box p,
+    .footer-box a {
+      color: #e8eefc;
+      display: block;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+    }
+
+    .footer-box a:hover {
+      color: #ffd7d7;
+    }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 30px auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      text-align: center;
+    }
+
+    .footer-bottom p {
+      margin: 6px 0;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      font-size: 26px;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 55px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      transition: 0.3s;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    .animate {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+
+    .animate.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* POPUP AD */
+    .ad-popup {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
       padding: 18px;
-      box-shadow: var(--shadow);
+      z-index: 99999;
     }
 
-    .count-card h3 {
-      color: var(--deep-blue);
-      margin-bottom: 8px;
-      font-size: 1rem;
+    .ad-popup.show {
+      display: flex;
     }
 
-    .count-card p {
-      font-size: 2rem;
+    .ad-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+    }
+
+    .ad-box {
+      position: relative;
+      width: 100%;
+      max-width: 1050px;
+      max-height: 92vh;
+      overflow-y: auto;
+      background: #ffffff;
+      border-radius: 22px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      z-index: 2;
+      animation: popupIn 0.35s ease;
+    }
+
+    .ad-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .ad-flyer {
+      background: #f4f8ff;
+    }
+
+    .ad-flyer img,
+    .ad-flyer video {
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      object-fit: cover;
+    }
+
+    .ad-form-wrap {
+      padding: 28px 22px;
+    }
+
+    .ad-form-wrap h2 {
+      color: #062b66;
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+    }
+
+    .ad-form-wrap p {
+      color: #5a6473;
+      margin-bottom: 16px;
+    }
+
+    .ad-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 50%;
+      background: #ffffff;
+      color: #062b66;
+      font-size: 1.5rem;
       font-weight: bold;
-      color: var(--red);
+      cursor: pointer;
+      z-index: 3;
     }
 
-    @media (max-width: 700px) {
-      .count-boxes {
+    .lead-success {
+      display: none;
+      margin-top: 16px;
+      padding: 18px;
+      border-radius: 14px;
+      background: #eef7ee;
+      border: 1px solid #b8dfb8;
+    }
+
+    .lead-success.show {
+      display: block;
+    }
+
+    .lead-success h3 {
+      color: #0a7a2f;
+      margin-bottom: 8px;
+    }
+
+    .lead-success a {
+      color: #0b5ed7;
+      font-weight: bold;
+    }
+
+    @keyframes popupIn {
+      from {
+        opacity: 0;
+        transform: scale(0.92);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero {
         grid-template-columns: 1fr;
+      }
+
+      .service-boxes,
+      .why-boxes,
+      .testimonial-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-text h1 {
+        font-size: 2.3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        background: rgba(255,255,255,0.08);
+        padding: 15px;
+        border-radius: 12px;
+      }
+
+      .nav-links.show-menu {
+        display: flex;
+      }
+
+      .hero-text {
+        padding: 28px 22px;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .section-title h2 {
+        font-size: 1.9rem;
+      }
+
+      .ad-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ad-flyer img,
+      .ad-flyer video {
+        min-height: 240px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .service-boxes,
+      .why-boxes,
+      .testimonial-grid,
+      .portfolio-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 0 14px;
+      }
+
+      section {
+        padding: 0 14px;
+      }
+
+      .hero-text {
+        padding: 24px 16px;
+      }
+
+      .hero-text h1 {
+        font-size: 1.7rem;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+      }
+
+      .hero-buttons a {
+        width: 100%;
+        text-align: center;
+      }
+
+      .portfolio-card img {
+        height: 220px;
+      }
+
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 22px;
+        right: 14px;
+        bottom: 14px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <div id="loginView" class="card login-box">
-      <h2>Admin Login</h2>
-      <p>Sign in to read site messages and advert leads.</p>
-      <form id="loginForm" class="form-grid">
-        <input type="email" id="adminEmail" placeholder="Admin Email" required />
-        <input type="password" id="adminPassword" placeholder="Password" required />
-        <button type="submit" class="submit-btn">Login</button>
-      </form>
-      <p id="loginStatus" class="status"></p>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <a href="#home">Ceetice Technologies</a>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle">☰</button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#promo-video">Promo Video</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-text animate">
+        <span class="hero-badge">Creative Digital & Print Solutions</span>
+        <h1>We Build, Brand and Promote Businesses Professionally</h1>
+        <p>
+          Ceetice Technologies helps businesses, schools, churches, startups and individuals
+          with website design, branding, printing, graphics and business support services.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="https://wa.me/2348064934480" target="_blank" class="btn-primary">Chat on WhatsApp</a>
+          <a href="#services" class="btn-secondary">Explore Services</a>
+        </div>
+      </div>
+
+      <div class="hero-image animate">
+        <img src="images/hero.jpg" alt="Creative digital and printing workspace" />
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-title animate">
+        <h2>About Ceetice Technologies</h2>
+        <p>Professional digital and print solutions designed to help your brand stand out.</p>
+      </div>
+
+      <div class="about-content animate">
+        <p>
+          Ceetice Technologies is a trusted service brand committed to helping customers with
+          web design, graphics design, branding, printing, internet services, office support
+          and logistics-related solutions.
+        </p>
+        <p>
+          We focus on quality delivery, affordable pricing, attractive designs and dependable
+          customer support for every project we handle.
+        </p>
+        <p>
+          Whether you need a business website, a branded flyer, a banner, social media design
+          or professional business support, we are ready to serve you.
+        </p>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="section-title animate">
+        <h2>Our Services</h2>
+        <p>We provide reliable digital, branding, printing and business support solutions.</p>
+      </div>
+
+      <div class="service-boxes">
+        <div class="service-card animate">
+          <div class="service-icon">🌐</div>
+          <img src="images/web-design.jpg" alt="Website design service" />
+          <h3>Web Design</h3>
+          <p>Clean and responsive websites for businesses, brands, schools and organizations.</p>
+        </div>
+
+        <div class="service-card animate">
+          <div class="service-icon">🖨️</div>
+          <img src="images/printing.jpg" alt="Printing service" />
+          <h3>Printing Services</h3>
+          <p>Banner, flyers, posters, stickers, invitation cards, business cards and more.</p>
+        </div>
+
+        <div class="service-card animate">
+          <div class="service-icon">🎨</div>
+          <img src="images/branding.jpg" alt="Branding service" />
+          <h3>Branding</h3>
+          <p>Professional branding solutions that make your business more visible and attractive.</p>
+        </div>
+
+        <div class="service-card animate">
+          <div class="service-icon">🧾</div>
+          <img src="images/graphics.jpg" alt="Graphics design service" />
+          <h3>Graphics Design</h3>
+          <p>Eye-catching flyers, logos, posters, social media designs and promotional graphics.</p>
+        </div>
+
+        <div class="service-card animate">
+          <div class="service-icon">🏢</div>
+          <img src="images/business-center.jpg" alt="Business center service" />
+          <h3>Business Center</h3>
+          <p>Typing, photocopy, scanning, lamination and other office support services.</p>
+        </div>
+
+        <div class="service-card animate">
+          <div class="service-icon">🚚</div>
+          <img src="images/logistics.jpg" alt="Logistics support service" />
+          <h3>Logistics Support</h3>
+          <p>Delivery, pickup and support services that help businesses serve customers better.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us">
+      <div class="section-title animate">
+        <h2>Why Choose Us</h2>
+        <p>We combine creativity, speed and professionalism to deliver real value.</p>
+      </div>
+
+      <div class="why-boxes">
+        <div class="why-card animate">
+          <h3>Creative Solutions</h3>
+          <p>We create modern and attractive designs that help your brand look sharp and professional.</p>
+        </div>
+
+        <div class="why-card animate">
+          <h3>Affordable Pricing</h3>
+          <p>We offer quality services at prices that work for startups, students and growing businesses.</p>
+        </div>
+
+        <div class="why-card animate">
+          <h3>Fast Delivery</h3>
+          <p>We value your time and work hard to deliver projects as quickly as possible.</p>
+        </div>
+
+        <div class="why-card animate">
+          <h3>Reliable Support</h3>
+          <p>We guide our clients properly from project start to finish and stay available when needed.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="background-media">
+      <div class="section-title animate">
+        <h2>Background Media Space</h2>
+        <p>Use this area for a full background picture or short brand video.</p>
+      </div>
+
+      <div class="media-card animate">
+        <!-- Use either image or video below -->
+        <!-- IMAGE OPTION -->
+        <img src="images/site-background.jpg" alt="Ceetice background media" />
+
+        <!-- VIDEO OPTION
+        <video controls autoplay muted loop poster="images/site-background-poster.jpg">
+          <source src="videos/site-background.mp4" type="video/mp4">
+        </video>
+        -->
+
+        <p class="media-note">
+          Replace <strong>images/site-background.jpg</strong> with your own background image,
+          or uncomment the video section and upload <strong>videos/site-background.mp4</strong>.
+        </p>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <div class="section-title animate">
+        <h2>Our Portfolio</h2>
+        <p>Take a look at some of the creative and professional jobs we handle.</p>
+      </div>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-card animate">
+          <img src="images/portfolio1.jpg" alt="Sample design work 1" />
+          <div class="portfolio-overlay">
+            <h3>Branding Design</h3>
+            <p>Professional business branding project</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card animate">
+          <img src="images/portfolio2.jpg" alt="Sample design work 2" />
+          <div class="portfolio-overlay">
+            <h3>Printing Job</h3>
+            <p>High-quality flyer and banner print</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card animate">
+          <img src="images/portfolio3.jpg" alt="Sample design work 3" />
+          <div class="portfolio-overlay">
+            <h3>Website Project</h3>
+            <p>Modern and responsive business website</p>
+          </div>
+        </div>
+
+        <div class="portfolio-card animate">
+          <img src="images/portfolio4.jpg" alt="Sample design work 4" />
+          <div class="portfolio-overlay">
+            <h3>Graphics Design</h3>
+            <p>Creative advert and promotional design</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="promo-video">
+      <div class="section-title animate">
+        <h2>Advert Video Space</h2>
+        <p>Upload your promo or advert video here.</p>
+      </div>
+
+      <div class="video-card animate">
+        <video controls poster="images/ad-video-poster.jpg">
+          <source src="videos/ad-video.mp4" type="video/mp4">
+        </video>
+        <p class="video-note">
+          Upload your file as <strong>videos/ad-video.mp4</strong> and optional poster image as
+          <strong>images/ad-video-poster.jpg</strong>.
+        </p>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="section-title animate">
+        <h2>What Clients Say</h2>
+        <p>We are committed to quality service and customer satisfaction.</p>
+      </div>
+
+      <div class="testimonial-grid">
+        <div class="testimonial-card animate">
+          <p>
+            Ceetice Technologies did an excellent job for our business branding.
+            The design was clean, attractive and professional.
+          </p>
+          <h3>— Business Client</h3>
+        </div>
+
+        <div class="testimonial-card animate">
+          <p>
+            Their flyer and printing service was very impressive. Fast delivery and
+            quality result. I truly recommend them.
+          </p>
+          <h3>— Happy Customer</h3>
+        </div>
+
+        <div class="testimonial-card animate">
+          <p>
+            They helped us with a website project and the outcome was beautiful,
+            responsive and easy to use on phone.
+          </p>
+          <h3>— Website Client</h3>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-title animate">
+        <h2>Contact Us</h2>
+        <p>Let’s work together on your next digital, printing or branding project.</p>
+      </div>
+
+      <div class="contact-content animate">
+        <p><strong>Business Name:</strong> Ceetice Technologies</p>
+        <p><strong>Powered By:</strong> Ceetify Multi-Ventures Ltd</p>
+        <p><strong>Phone:</strong> 07007000233</p>
+        <p><strong>WhatsApp:</strong> 08064934480</p>
+        <p><strong>Email:</strong> ceetify@gmail.com</p>
+        <p><strong>Address:</strong> Behind NEPA Office, Irete Market, Owerri, Imo State</p>
+
+        <form id="contact-form" class="contact-form">
+          <input type="text" id="name" placeholder="Your Name" required />
+          <input type="email" id="contact_email" placeholder="Your Email" required />
+          <input type="text" id="subject" placeholder="Subject" required />
+          <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="main-footer">
+    <div class="footer-grid">
+      <div class="footer-box">
+        <h3>Ceetice Technologies</h3>
+        <p>
+          Professional digital, printing and branding solutions for businesses,
+          organizations and individuals.
+        </p>
+      </div>
+
+      <div class="footer-box">
+        <h3>Quick Links</h3>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#promo-video">Promo Video</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-box">
+        <h3>Our Services</h3>
+        <p>Web Design</p>
+        <p>Printing Services</p>
+        <p>Branding</p>
+        <p>Graphics Design</p>
+        <p>Business Center</p>
+      </div>
+
+      <div class="footer-box">
+        <h3>Contact Info</h3>
+        <p>07007000233</p>
+        <p>08064934480</p>
+        <p>ceetify@gmail.com</p>
+        <p>Behind NEPA Office, Irete Market, Owerri, Imo State</p>
+      </div>
     </div>
 
-    <div id="dashboardView" class="hidden">
-      <div class="topbar">
-        <h1>Ceetice Admin Dashboard</h1>
-        <button id="logoutBtn" class="btn">Logout</button>
-      </div>
+    <div class="footer-bottom">
+      <p><strong>Ceetice Technologies</strong></p>
+      <p>Powered by Ceetify Multi-Ventures Ltd</p>
+      <p>Building Tomorrow Ecosystem</p>
+    </div>
+  </footer>
 
-      <div class="count-boxes">
-        <div class="count-card">
-          <h3>Total Contact Messages</h3>
-          <p id="messagesCount">0</p>
-        </div>
-        <div class="count-card">
-          <h3>Total Advert Leads</h3>
-          <p id="leadsCount">0</p>
-        </div>
-      </div>
+  <a href="https://wa.me/2348064934480" class="whatsapp-float" target="_blank">💬</a>
 
-      <div class="card">
-        <div class="tabs">
-          <button class="tab-btn active" data-tab="messages">Contact Messages</button>
-          <button class="tab-btn" data-tab="leads">Advert Leads</button>
+  <!-- POPUP AD -->
+  <div id="adPopup" class="ad-popup">
+    <div class="ad-overlay" id="adOverlay"></div>
+
+    <div class="ad-box">
+      <button id="adClose" class="ad-close">&times;</button>
+
+      <div class="ad-grid">
+        <div class="ad-flyer">
+          <!-- IMAGE OPTION -->
+          <img src="images/ad-flyer.jpg" alt="Ceetice Promo Flyer" />
+
+          <!-- VIDEO OPTION
+          <video controls autoplay muted loop poster="images/ad-flyer.jpg">
+            <source src="videos/ad-popup-video.mp4" type="video/mp4">
+          </video>
+          -->
         </div>
 
-        <div class="toolbar">
-          <input type="text" id="searchInput" placeholder="Search..." />
-          <button id="refreshBtn" class="btn">Refresh</button>
-        </div>
+        <div class="ad-form-wrap">
+          <h2>Advertise Your Business With Us</h2>
+          <p>
+            Fill this form and we will reach out to you. After submitting,
+            chat us on WhatsApp for faster response.
+          </p>
 
-        <div id="messagesPanel">
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Subject</th>
-                  <th>Message</th>
-                </tr>
-              </thead>
-              <tbody id="messagesTableBody"></tbody>
-            </table>
+          <form id="lead-form" class="lead-form">
+            <input type="text" id="lead_name" placeholder="Your Name" required />
+            <input type="text" id="lead_business_name" placeholder="Business Name" required />
+            <input type="tel" id="lead_phone" placeholder="Phone Number" required />
+            <input type="text" id="lead_address" placeholder="Business Address" required />
+            <input type="text" id="lead_business_type" placeholder="Nature of Business" required />
+            <textarea id="lead_services" rows="3" placeholder="Services Offered" required></textarea>
+            <input type="email" id="lead_email" placeholder="Email Address" required />
+            <button type="submit">Submit</button>
+          </form>
+
+          <div id="lead-success" class="lead-success">
+            <h3>Submission successful</h3>
+            <p>Your details have been received successfully.</p>
+            <p>
+              Chat us on WhatsApp for faster response:
+              <a href="https://wa.me/2348064934480" target="_blank">Open WhatsApp</a>
+            </p>
           </div>
-          <p id="messagesEmpty" class="empty hidden">No messages found.</p>
         </div>
-
-        <div id="leadsPanel" class="hidden">
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Date</th>
-                  <th>Name</th>
-                  <th>Business Name</th>
-                  <th>Phone</th>
-                  <th>Address</th>
-                  <th>Nature of Business</th>
-                  <th>Services Offered</th>
-                  <th>Email</th>
-                </tr>
-              </thead>
-              <tbody id="leadsTableBody"></tbody>
-            </table>
-          </div>
-          <p id="leadsEmpty" class="empty hidden">No leads found.</p>
-        </div>
-
-        <p id="dashboardStatus" class="status"></p>
       </div>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <script>
+    const menuToggle = document.getElementById("menu-toggle");
+    const navLinks = document.getElementById("nav-links");
+    const links = document.querySelectorAll(".nav-links a");
+    const animatedItems = document.querySelectorAll(".animate");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", function () {
+        navLinks.classList.toggle("show-menu");
+      });
+    }
+
+    links.forEach(function (link) {
+      link.addEventListener("click", function () {
+        links.forEach(function (item) {
+          item.classList.remove("active");
+        });
+        this.classList.add("active");
+        if (navLinks) {
+          navLinks.classList.remove("show-menu");
+        }
+      });
+    });
+
+    function revealOnScroll() {
+      animatedItems.forEach(function (item) {
+        const itemTop = item.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (itemTop < windowHeight - 80) {
+          item.classList.add("show");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    window.addEventListener("load", revealOnScroll);
+    revealOnScroll();
+
     const supabaseUrl = "https://hrcilkmvnumxmafznowp.supabase.co";
     const supabaseKey = "sb_publishable_3bPHYwJ7HwStyR1B98UEHA_VpQj3V66";
-    const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
 
-    const loginView = document.getElementById("loginView");
-    const dashboardView = document.getElementById("dashboardView");
-    const loginForm = document.getElementById("loginForm");
-    const loginStatus = document.getElementById("loginStatus");
-    const logoutBtn = document.getElementById("logoutBtn");
-    const refreshBtn = document.getElementById("refreshBtn");
-    const dashboardStatus = document.getElementById("dashboardStatus");
-    const searchInput = document.getElementById("searchInput");
+    const contactForm = document.getElementById("contact-form");
+    const leadForm = document.getElementById("lead-form");
+    const leadSuccess = document.getElementById("lead-success");
 
-    const messagesTableBody = document.getElementById("messagesTableBody");
-    const leadsTableBody = document.getElementById("leadsTableBody");
-    const messagesEmpty = document.getElementById("messagesEmpty");
-    const leadsEmpty = document.getElementById("leadsEmpty");
-    const messagesCount = document.getElementById("messagesCount");
-    const leadsCount = document.getElementById("leadsCount");
+    const adPopup = document.getElementById("adPopup");
+    const adClose = document.getElementById("adClose");
+    const adOverlay = document.getElementById("adOverlay");
 
-    const messagesPanel = document.getElementById("messagesPanel");
-    const leadsPanel = document.getElementById("leadsPanel");
-    const tabButtons = document.querySelectorAll(".tab-btn");
-
-    let allMessages = [];
-    let allLeads = [];
-    let activeTab = "messages";
-
-    function formatDate(value) {
-      if (!value) return "";
-      return new Date(value).toLocaleString();
-    }
-
-    function showLogin() {
-      loginView.classList.remove("hidden");
-      dashboardView.classList.add("hidden");
-    }
-
-    function showDashboard() {
-      loginView.classList.add("hidden");
-      dashboardView.classList.remove("hidden");
-    }
-
-    async function checkSession() {
-      const { data } = await supabase.auth.getSession();
-      if (data.session) {
-        showDashboard();
-        await loadDashboardData();
-      } else {
-        showLogin();
-      }
-    }
-
-    loginForm.addEventListener("submit", async function (e) {
-      e.preventDefault();
-      loginStatus.textContent = "Signing in...";
-
-      const email = document.getElementById("adminEmail").value.trim();
-      const password = document.getElementById("adminPassword").value.trim();
-
-      const { error } = await supabase.auth.signInWithPassword({ email, password });
-
-      if (error) {
-        loginStatus.textContent = error.message;
-      } else {
-        loginStatus.textContent = "";
-        showDashboard();
-        await loadDashboardData();
-      }
-    });
-
-    logoutBtn.addEventListener("click", async function () {
-      await supabase.auth.signOut();
-      showLogin();
-    });
-
-    refreshBtn.addEventListener("click", async function () {
-      await loadDashboardData();
-    });
-
-    tabButtons.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        tabButtons.forEach(b => b.classList.remove("active"));
-        this.classList.add("active");
-        activeTab = this.dataset.tab;
-
-        if (activeTab === "messages") {
-          messagesPanel.classList.remove("hidden");
-          leadsPanel.classList.add("hidden");
-        } else {
-          messagesPanel.classList.add("hidden");
-          leadsPanel.classList.remove("hidden");
-        }
-
-        applySearch();
-      });
-    });
-
-    searchInput.addEventListener("input", applySearch);
-
-    function renderMessages(rows) {
-      messagesTableBody.innerHTML = "";
-
-      if (!rows.length) {
-        messagesEmpty.classList.remove("hidden");
-        return;
-      }
-
-      messagesEmpty.classList.add("hidden");
-
-      rows.forEach(function (item) {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td>${formatDate(item.created_at)}</td>
-          <td>${item.name || ""}</td>
-          <td>${item.email || ""}</td>
-          <td>${item.subject || ""}</td>
-          <td>${item.message || ""}</td>
-        `;
-        messagesTableBody.appendChild(tr);
+    if (adPopup) {
+      window.addEventListener("load", function () {
+        setTimeout(function () {
+          adPopup.classList.add("show");
+        }, 1200);
       });
     }
 
-    function renderLeads(rows) {
-      leadsTableBody.innerHTML = "";
-
-      if (!rows.length) {
-        leadsEmpty.classList.remove("hidden");
-        return;
-      }
-
-      leadsEmpty.classList.add("hidden");
-
-      rows.forEach(function (item) {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td>${formatDate(item.created_at)}</td>
-          <td>${item.full_name || ""}</td>
-          <td>${item.business_name || ""}</td>
-          <td>${item.phone || ""}</td>
-          <td>${item.address || ""}</td>
-          <td>${item.business_type || ""}</td>
-          <td>${item.services_offered || ""}</td>
-          <td>${item.email || ""}</td>
-        `;
-        leadsTableBody.appendChild(tr);
+    if (adClose) {
+      adClose.addEventListener("click", function () {
+        adPopup.classList.remove("show");
       });
     }
 
-    function applySearch() {
-      const q = searchInput.value.trim().toLowerCase();
+    if (adOverlay) {
+      adOverlay.addEventListener("click", function () {
+        adPopup.classList.remove("show");
+      });
+    }
 
-      if (activeTab === "messages") {
-        const filtered = allMessages.filter(function (item) {
-          return (
-            (item.name || "").toLowerCase().includes(q) ||
-            (item.email || "").toLowerCase().includes(q) ||
-            (item.subject || "").toLowerCase().includes(q) ||
-            (item.message || "").toLowerCase().includes(q)
-          );
+    if (window.supabase) {
+      const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+      if (contactForm) {
+        contactForm.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          try {
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("contact_email").value.trim();
+            const subject = document.getElementById("subject").value.trim();
+            const message = document.getElementById("message").value.trim();
+
+            const { error } = await supabase
+              .from("messages")
+              .insert([{ name, email, subject, message }]);
+
+            if (error) {
+              alert("Supabase error: " + error.message);
+            } else {
+              alert("Message sent successfully");
+              contactForm.reset();
+            }
+          } catch (err) {
+            alert("Network error: " + err.message);
+            console.log(err);
+          }
         });
-        renderMessages(filtered);
-      } else {
-        const filtered = allLeads.filter(function (item) {
-          return (
-            (item.full_name || "").toLowerCase().includes(q) ||
-            (item.business_name || "").toLowerCase().includes(q) ||
-            (item.phone || "").toLowerCase().includes(q) ||
-            (item.address || "").toLowerCase().includes(q) ||
-            (item.business_type || "").toLowerCase().includes(q) ||
-            (item.services_offered || "").toLowerCase().includes(q) ||
-            (item.email || "").toLowerCase().includes(q)
-          );
+      }
+
+      if (leadForm) {
+        leadForm.addEventListener("submit", async function (e) {
+          e.preventDefault();
+
+          try {
+            const full_name = document.getElementById("lead_name").value.trim();
+            const business_name = document.getElementById("lead_business_name").value.trim();
+            const phone = document.getElementById("lead_phone").value.trim();
+            const address = document.getElementById("lead_address").value.trim();
+            const business_type = document.getElementById("lead_business_type").value.trim();
+            const services_offered = document.getElementById("lead_services").value.trim();
+            const email = document.getElementById("lead_email").value.trim();
+
+            const { error } = await supabase
+              .from("leads")
+              .insert([{
+                full_name,
+                business_name,
+                phone,
+                address,
+                business_type,
+                services_offered,
+                email
+              }]);
+
+            if (error) {
+              alert("Submission error: " + error.message);
+            } else {
+              leadForm.reset();
+              leadSuccess.classList.add("show");
+            }
+          } catch (err) {
+            alert("Network error: " + err.message);
+            console.log(err);
+          }
         });
-        renderLeads(filtered);
       }
+    } else {
+      console.log("Supabase library not loaded");
     }
-
-    async function loadDashboardData() {
-      dashboardStatus.textContent = "Loading data...";
-
-      const { data: messages, error: messagesError } = await supabase
-        .from("messages")
-        .select("*")
-        .order("created_at", { ascending: false });
-
-      const { data: leads, error: leadsError } = await supabase
-        .from("leads")
-        .select("*")
-        .order("created_at", { ascending: false });
-
-      if (messagesError || leadsError) {
-        dashboardStatus.textContent =
-          (messagesError && messagesError.message) ||
-          (leadsError && leadsError.message) ||
-          "Failed to load data.";
-        return;
-      }
-
-      allMessages = messages || [];
-      allLeads = leads || [];
-
-      messagesCount.textContent = allMessages.length;
-      leadsCount.textContent = allLeads.length;
-
-      renderMessages(allMessages);
-      renderLeads(allLeads);
-
-      dashboardStatus.textContent = "Dashboard updated.";
-      applySearch();
-    }
-
-    checkSession();
   </script>
 </body>
 </html>
